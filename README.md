@@ -1,32 +1,25 @@
-# Microservices Infrastructure Implementation Lab
+# Microservices Infrastructure Implementation
 **Lead Engineer:** Jishnu Jayachandran
-**Status:** Implementation Complete / Resources Decommissioned
 
-## 📝 Project Objective
-The goal of this project was to deploy and manage a high-scale microservices environment. I used this lab to master the interaction between polyglot services and to practice the full DevOps lifecycle—from initial containerization to final resource cleanup.
+> **Note:** This project is a fork of **opentelemetry-demo**. Thanks to the team and contributors for opensourcing this wonderful demo project. Definitely one of the best on internet.
 
-## 🛠️ My Technical Implementation
-I followed a strict workflow to ensure the stability of the 11 microservices:
-* **Container Strategy:** Verified Dockerfile efficiency for services in Python, Go, and Rust.
-* **Orchestration:** Managed the cluster using Kubernetes manifests, focusing on Service discovery and Ingress routing.
-* **Communication:** Validated gRPC connectivity between the frontend and back-end services.
-* **Asynchronous Flow:** Observed Kafka message passing during the checkout-to-accounting pipeline.
+## 🚀 Project Overview
+This project is an implementation of a polyglot microservices application. I followed the deployment architecture to master containerization and Kubernetes orchestration for a distributed system.
 
+## 🏗️ Architecture & Services
+The application consists of 11+ microservices communicating via **gRPC** and **REST**, including:
+* **Frontend:** User interface for the platform.
+* **Product Catalog:** Backend service for item metadata.
+* **Cart & Checkout:** Services managing user sessions and order flow.
+* **Currency & Payment:** Financial logic handling.
+* **Shipping & Email:** Fulfillment and notification systems.
 
-
-## 📊 Observability & Validation
-Before decommissioning the project, I implemented a monitoring stack to observe the "Golden Signals":
-1. **Prometheus:** Configured to scrape metrics from the application pods.
-2. **Grafana:** Built dashboards to visualize real-time traffic and error rates.
-3. **OpenTelemetry:** Used for distributed tracing to find bottlenecks in service calls.
-
-
-
-## 🧹 Cost Optimization & Resource Hygiene
-A critical part of my DevOps practice is resource management. After validating the deployment:
-* I performed a **full teardown** of the EKS/K8s cluster and associated Load Balancers.
-* I used automated scripts (`cleanup_devops.py`) to ensure no orphan volumes or hidden costs remained.
-* **Result:** 100% successful deployment with zero ongoing cloud expenditure.
+## 🛠️ Implementation Details
+I performed the following technical tasks:
+1. **Container Management:** Built and optimized Docker images for all services.
+2. **Kubernetes Orchestration:** Deployed the stack using YAML manifests.
+3. **Internal Networking:** Verified gRPC connectivity between services.
+4. **Environment Cleanup:** Manually decommissioned all cloud resources (EKS/Load Balancers) after validation.
 
 ---
-**Technical Skills Demonstrated:** Kubernetes, Docker, Python Automation, SRE Observability, Cloud Cost Management.
+*Verified by Jishnu Jayachandran.*
