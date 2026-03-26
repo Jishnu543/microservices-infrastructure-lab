@@ -1,15 +1,23 @@
 # Microservices Infrastructure Lab
+A project for implementing observability across 11 microservices using OpenTelemetry, Prometheus, and Jaeger.
 
-This project tracks requests and system health using OpenTelemetry, Prometheus, and Jaeger.
+## 📁 Project Structure
+- **src/**: Source code for all microservices.
+- **kubernetes/**: Manifests for K8s deployment.
+- **scripts/**: Shell scripts for automation.
+- **docker-compose.yml**: For local deployment.
 
-## Structure
-- **app/**: Service code
-- **deploy/**: Docker/K8s files
-- **scripts/**: Automation
+## 🚀 How to Run
 
-## Run
-- **Docker**: cd deploy/docker && docker compose up -d
-- **K8s**: kubectl apply -f deploy/k8s/complete-deploy.yaml
+### Local (Docker)
+```bash
+docker compose up -d
+```
+
+### Kubernetes
+```bash
+kubectl apply -f kubernetes/
+```
 
 ---
-Maintained by: Jishnu Jayachandran
+**Maintained by:** [Jishnu Jayachandran](https://github.com/Jishnu543)
