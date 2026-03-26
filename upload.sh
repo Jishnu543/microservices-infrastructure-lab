@@ -1,3 +1,26 @@
+#!/bin/bash
+
+# 1. Setup Folders
+mkdir -p screenshots
+
+# 2. Copy and Rename Images from Windows
+echo "Copying images from Windows..."
+cp "/mnt/c/Users/smile/OneDrive/Pictures/project"/*.{png,jpg,jpeg} ./screenshots/ 2>/dev/null
+
+echo "Renaming images..."
+cd screenshots
+count=1
+for f in *; do
+    if [[ -f "$f" ]]; then
+        mv "$f" "ss$count.png"
+        ((count++))
+    fi
+done
+cd ..
+
+# 3. Create the Professional README
+echo "Generating README.md..."
+cat << 'EOF' > README.md
 # Microservices Infrastructure Lab 🚀
 
 A comprehensive implementation of observability and infrastructure management for a distributed system consisting of **21 microservices**. This project demonstrates end-to-end tracing, metrics collection, and health monitoring.
@@ -40,3 +63,12 @@ kubectl apply -f kubernetes/
 
 ---
 **Maintained by:** [Jishnu Jayachandran](https://github.com/Jishnu543)
+EOF
+
+# 4. Push to GitHub
+echo "Pushing to GitHub..."
+git add .
+git commit -m "feat: finalized project gallery and readme"
+git push origin main
+
+echo "DONE! Your GitHub is now ready."
