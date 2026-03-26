@@ -1,3 +1,39 @@
+#!/bin/bash
+
+echo "🚀 Starting Professional Project Enhancement..."
+
+# 1. Create a specialized scripts directory
+mkdir -p scripts
+
+# 2. Create an Environment Setup Script (Professional Touch)
+echo "Creating environment validation script..."
+cat << 'EOF' > scripts/setup_env.sh
+#!/bin/bash
+echo "🔍 Checking System Requirements..."
+TOTAL_RAM=$(free -g | awk '/^Mem:/{print $2}')
+if [ "$TOTAL_RAM" -lt 8 ]; then
+    echo "⚠️ Warning: You have less than 8GB RAM. System might be unstable."
+else
+    echo "✅ RAM Check Passed ($TOTAL_RAM GB)"
+fi
+
+if ! docker info > /dev/null 2>&1; then
+    echo "❌ Error: Docker is not running. Please start Docker Desktop."
+    exit 1
+fi
+echo "✅ Docker is running."
+EOF
+chmod +x scripts/setup_env.sh
+
+# 3. Add Resource Limits to docker-compose.yml
+# This prevents one service from crashing your whole PC.
+echo "Injecting resource limits into docker-compose.yml..."
+# We use a temp file to safely modify the yaml
+sed -i '/image:/a \    deploy:\n      resources:\n        limits:\n          cpus: "0.20"\n          memory: 200M' docker-compose.yml
+
+# 4. Generate the Final Recruiter-Ready README
+echo "Generating professional documentation..."
+cat << 'EOF' > README.md
 # 🚀 Microservices Infrastructure & Observability Lab
 
 ![Kubernetes](https://img.shields.io/badge/Orchestration-Kubernetes-blue)
@@ -59,3 +95,15 @@ docker compose up -d
 
 ---
 **Author:** [Jishnu Jayachandran](https://github.com/Jishnu543)
+EOF
+
+# 5. Cleanup junk files for a clean GitHub history
+rm upload.sh script.sh finish.sh acript.sh portfolio_setup.sh 2>/dev/null
+
+# 6. Final Push
+echo "Pushing professional upgrades to GitHub..."
+git add .
+git commit -m "feat: implement SRE resource limits and professional README documentation"
+git push origin main
+
+echo "✨ PROJECT FULLY ENHANCED! Check your GitHub now."

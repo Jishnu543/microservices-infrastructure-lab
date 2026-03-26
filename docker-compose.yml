@@ -20,6 +20,11 @@ services:
   # Accounting service
   accounting:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-accounting
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: accounting
     build:
       context: ./
@@ -49,6 +54,11 @@ services:
   # AdService
   ad:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-ad
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: ad
     build:
       context: ./
@@ -85,6 +95,11 @@ services:
   # Cart service
   cart:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-cart
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: cart
     build:
       context: ./
@@ -120,6 +135,11 @@ services:
   # Checkout service
   checkout:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-checkout
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: checkout
     build:
       context: ./
@@ -173,6 +193,11 @@ services:
   # Currency service
   currency:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-currency
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: currency
     build:
       context: ./
@@ -204,6 +229,11 @@ services:
   # Email service
   email:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-email
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: email
     build:
       context: ./
@@ -234,6 +264,11 @@ services:
   # Fraud Detection service
   fraud-detection:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-fraud-detection
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: fraud-detection
     build:
       context: ./
@@ -267,6 +302,11 @@ services:
   # Frontend
   frontend:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-frontend
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: frontend
     build:
       context: ./
@@ -328,6 +368,11 @@ services:
   # Frontend Proxy (Envoy)
   frontend-proxy:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-frontend-proxy
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: frontend-proxy
     build:
       context: ./
@@ -381,6 +426,11 @@ services:
   # image-provider
   image-provider:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-image-provider
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: image-provider
     build:
       context: ./
@@ -408,6 +458,11 @@ services:
   # Load Generator
   load-generator:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-load-generator
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: load-generator
     build:
       context: ./
@@ -447,6 +502,11 @@ services:
   # Payment service
   payment:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-payment
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: payment
     build:
       context: ./
@@ -479,6 +539,11 @@ services:
   # Product Catalog service
   product-catalog:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-product-catalog
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: product-catalog
     build:
       context: ./
@@ -514,6 +579,11 @@ services:
   # Quote service
   quote:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-quote
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: quote
     build:
       context: ./
@@ -544,6 +614,11 @@ services:
   # Recommendation service
   recommendation:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-recommendation
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: recommendation
     build:
       context: ./
@@ -580,6 +655,11 @@ services:
   # Shipping service
   shipping:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-shipping
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: shipping
     build:
       context: ./
@@ -612,6 +692,11 @@ services:
   # Flagd, feature flagging service
   flagd:
     image: ${FLAGD_IMAGE}
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: flagd
     deploy:
       resources:
@@ -640,6 +725,11 @@ services:
   # Flagd UI for configuring the feature flag service
   flagd-ui:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-flagd-ui
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: flagd-ui
     build:
       context: ./
@@ -672,6 +762,11 @@ services:
   # Kafka used by Checkout, Accounting, and Fraud Detection services
   kafka:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-kafka
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: kafka
     build:
       context: ./
@@ -707,6 +802,11 @@ services:
   # Postgresql used by Accounting service
   postgresql:
     image: ${IMAGE_NAME}:${DEMO_VERSION}-postgresql
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: postgresql
     build:
       context: ./
@@ -729,6 +829,11 @@ services:
   # Valkey used by Cart service
   valkey-cart:
     image: ${VALKEY_IMAGE}
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: valkey-cart
     user: valkey
     deploy:
@@ -747,6 +852,11 @@ services:
   # Jaeger
   jaeger:
     image: ${JAEGERTRACING_IMAGE}
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: jaeger
     command:
       - "--config=file:/etc/jaeger/config.yml"
@@ -772,6 +882,11 @@ services:
   # Grafana
   grafana:
     image: ${GRAFANA_IMAGE}
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: grafana
     deploy:
       resources:
@@ -790,6 +905,11 @@ services:
   # OpenTelemetry Collector
   otel-collector:
     image: ${COLLECTOR_CONTRIB_IMAGE}
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: otel-collector
     deploy:
       resources:
@@ -828,6 +948,11 @@ services:
   # Prometheus
   prometheus:
     image: ${PROMETHEUS_IMAGE}
+    deploy:
+      resources:
+        limits:
+          cpus: "0.20"
+          memory: 200M
     container_name: prometheus
     command:
       - --web.console.templates=/etc/prometheus/consoles
